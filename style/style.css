@@ -1,0 +1,50 @@
+#title {
+  text-align: center;
+}
+
+#search-bar, #search-bar input {
+  text-align: center;
+}
+
+#random-article {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#content {
+  margin-left: 150px;
+  margin-right:150px;
+}
+
+#results div {
+  background-color: silver;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 40px;
+}
+
+#results img {
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+/*   width: 70px; */
+}
+
+#results #title {
+  text-decoration: underline;
+  font-weight: bold;
+  color: black;
+}
+
+#results #snippet {
+  color: black;
+}
+
+#results a:hover {
+  text-decoration: none;
+}
+
+#results div:hover {
+  border: 5px solid #1D953C;
+}
