@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import SearchBar from './components/search_bar';
 import RandomArticle from './components/random_article';
 import Articles from './components/articles';
@@ -9,25 +10,14 @@ const randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { term: '', api: '', data: [] };
+    this.state = { term: '', api: "", data: [] };
     this.wikiSearch = this.wikiSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    fetch(this.state.api)
-    .then(results => {
-      return results.json();
-    }).then(data => {
-      let results = data.results.map((data) => {
-        return(
-          <div key={data.results}>
-            <ul>this.state.data</ul>
-          </div>
-        )
-      })
-      this.setState({data: results});
-      console.log("state", this.state.data);
+    axios.get(this.state.api).then(res => {
+      console.log(res);
     })
   }
 
@@ -36,6 +26,7 @@ class App extends Component {
     const api = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts|pageimages&exintro&exsentences=2&generator=search&gsrsearch=" + term + "&format=json";
     this.setState({ api: api })
     console.log(api);
+    // this.fetchJson();
   }
 
   handleChange(event) {
@@ -54,7 +45,9 @@ class App extends Component {
           <RandomArticle randomArticle={randomArticle}/>
         </div>
         <div>
-          {this.state.data}
+          <div key={this.state.data.response}>
+            <ul>{this.state.data}</ul>
+          </div>
           <Articles data={this.state.data}/>
         </div>
       </div>
