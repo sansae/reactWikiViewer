@@ -5,19 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.24.1",
+    "cors": "^2.8.4",
+    "min-jquery": "^1.7.0",
     "react": "^16.2.0",
     "react-axios": "^2.0.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.10.0"
+    "superagent": "^3.8.2",
+    "superagent-jsonp": "^0.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
