@@ -5,17 +5,31 @@ class Articles extends Component {
     super(props);
   }
 
-
   render() {
+    var data = this.props.data;
+    var term = this.props.term;
+    if (term == "") {
+      console.log('search term is empty');
+    } else {
+      console.log(`search term is ${term}`);
+    }
+    console.log(this.props.term);
+
+    var results = "";
+    if (data[1]) {
+      results = data[1].map((title, index) => {
+        return (
+          <div>
+            <h1>{data[1][index]}</h1>;
+            <p>{data[2][index]}</p>
+          </div>
+        );
+      })
+    }
+
     return (
       <div>
-        <ul>
-          {
-            this.props.data.map((item, i) => {
-              return <li>item</li>
-            })
-          }
-        </ul>
+        {results}
       </div>
     );
   }
