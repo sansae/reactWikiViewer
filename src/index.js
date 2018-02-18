@@ -40,16 +40,19 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div id="content">
         <div>
-          <h1 id="title">Wiki Viewer</h1>
+          <h1 id="title">ReactJS Wiki Viewer</h1>
           <SearchBar value={this.state.term} onChange={this.handleChange}/>
         </div>
         <div>
           <RandomArticle randomArticle={randomArticle}/>
         </div>
         <div>
-          <Articles term = {this.state.term} data={this.state.data} />
+          <Articles term={this.state.term} data={this.state.data} />
+        </div>
+        <div>
+          <footer>Designed and coded by Kent Saeteurn</footer>
         </div>
       </div>
     );
