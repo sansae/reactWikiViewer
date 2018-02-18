@@ -20,7 +20,6 @@ class App extends Component {
       url: this.state.api,
       dataType: "jsonp",
       success: (json) => {
-        console.log('api call was a success, Kent!');
         this.setState({data: json})
       }
     })
@@ -29,11 +28,11 @@ class App extends Component {
   wikiSearch(term) {
     const api = `https://en.wikipedia.org/w/api.php?search=${term}&action=opensearch&format=json`;
     this.setState({ api: api });
-    console.log(api);
     this.fetchJson();
   }
 
   handleChange(event) {
+    console.log(event.target.value);
     this.setState({ term: event.target.value });
     this.wikiSearch(event.target.value);
   }
