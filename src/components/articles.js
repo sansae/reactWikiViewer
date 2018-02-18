@@ -19,16 +19,18 @@ class Articles extends Component {
     if (data[1]) {
       results = data[1].map((title, index) => {
         return (
-          <div>
-            <h1>{data[1][index]}</h1>;
-            <p>{data[2][index]}</p>
-          </div>
+          <a href={data[3][index]} target="_blank">
+            <div>
+              <h1>{data[1][index]}</h1>
+              <p>{data[2][index]}</p>
+            </div>
+          </a>
         );
       })
     }
 
     return (
-      <div>
+      <div id="result">
         {results}
       </div>
     );
