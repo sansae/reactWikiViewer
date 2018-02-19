@@ -27,14 +27,12 @@ class App extends Component {
 
   wikiSearch(term) {
     const api = `https://en.wikipedia.org/w/api.php?search=${term}&action=opensearch&format=json`;
-    this.setState({ api: api });
-    this.fetchJson();
+    this.setState({ api: api }, this.fetchJson);
+
   }
 
   handleChange(event) {
-    console.log(event.target.value);
-    this.setState({ term: event.target.value });
-    this.wikiSearch(event.target.value);
+    this.setState({ term: event.target.value }, this.wikiSearch(event.target.value));
   }
 
   render () {
